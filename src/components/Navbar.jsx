@@ -127,7 +127,8 @@ const Navbar = (props) => {
 
 export default connect(
     (state) => ({
-        items: state.shop,
+        items: state.shop.cart,
+
     }),
 
     {}

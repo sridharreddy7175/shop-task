@@ -1,18 +1,15 @@
 import "./App.css";
-import Header from "./components/Header";
-import Products from "./components/Products";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import { connect } from "react-redux";
+import HomePage from "./containers/HomePage";
 
 
 function App(props) {
   return (
     <div>
       <Router>
-        <Header />
         <Routes>
-          <Route exact path="/" element={<Products />}></Route>
+          <Route exact path="/" element={<HomePage />}></Route>
           <Route path="/cart" element={<Navbar />}></Route>
         </Routes>
       </Router>
@@ -20,10 +17,4 @@ function App(props) {
   );
 }
 
-export default connect(
-  (state) => ({
-    items: state.shop,
-  }),
-
-  {}
-)(App);
+export default App;
