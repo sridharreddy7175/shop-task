@@ -11,8 +11,8 @@ import {
 const CartPage = (props) => {
     const navigate = useNavigate();
 
-    let amount = 0;
 
+    console.log("props", props.items)
 
     useEffect(() => {
         if (props?.items.length === 0) {
@@ -44,25 +44,27 @@ const CartPage = (props) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {props?.items?.map((c) => {
-                                    amount = amount + c.price;
+                                {props?.items?.map((item) => {
+
+
+
                                     return (
                                         <tr>
-                                            <td>{c.item_name}</td>
+                                            <td>{item.item_name}</td>
                                             <td>Black</td>
                                             <td>M</td>
-                                            <td>&#x20b9; {c.price * c.qty}</td>
+                                            <td>&#x20b9; {item.price * item.qty}</td>
                                             <td>
                                                 <button
                                                     className=""
-                                                    onClick={() => props?.subQuanity(c)}
+                                                    onClick={() => props?.subQuanity(item)}
                                                 >
                                                     -
                                                 </button>
-                                                <span className="fw-bolder">{c.qty}</span>
+                                                <span>{item.qty}</span>
                                                 <button
                                                     className=""
-                                                    onClick={() => props?.addQuanity(c)}
+                                                    onClick={() => props?.addQuanity(item)}
                                                 >
                                                     +
                                                 </button>
@@ -72,7 +74,7 @@ const CartPage = (props) => {
                                                 <button
                                                     type="button"
                                                     className="btn btn-danger ml-2"
-                                                    onClick={() => remove(c)}
+                                                    onClick={() => remove(item)}
                                                 >
                                                     X
                                                 </button>

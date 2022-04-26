@@ -58,6 +58,9 @@ const shopReducer = (state = { products: [], cart: [] }, action) => {
                 subItem.qty -= 1;
                 return {
                     ...state,
+                    cart: [...state.cart]
+
+
                 };
             }
 

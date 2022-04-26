@@ -28,7 +28,7 @@ const Cart = (props) => {
                         <h5 className="mr-4">{item?.item_name?.substring(0, 15)}</h5>
 
 
-                        <h5 className="ml-5">&#x20B9;{item?.price}</h5>
+                        <h5 className="ml-5">&#x20B9;{item?.price * item.qty}</h5>
                         <button
                             type="button"
                             className="btn btn-danger ml-5 mt-1"
