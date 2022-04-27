@@ -10,7 +10,7 @@ import {
 const shopReducer = (state = { products: [], cart: [] }, action) => {
     switch (action.type) {
         case ADD_TO_CART:
-            // console.log(state, "state");
+            console.log(state, "state");
             const addedItem = state?.products.find(
                 (item) => item.id === action.payload.id
             );
@@ -35,6 +35,7 @@ const shopReducer = (state = { products: [], cart: [] }, action) => {
             const addItem = state?.products.find(
                 (item) => item.id === action.payload.id
             );
+            console.log("add", addItem)
             addItem.qty += 1;
             return {
                 ...state,
@@ -55,6 +56,7 @@ const shopReducer = (state = { products: [], cart: [] }, action) => {
                     cart: new_Items,
                 };
             } else {
+                console.log("hello")
                 subItem.qty -= 1;
                 return {
                     ...state,
